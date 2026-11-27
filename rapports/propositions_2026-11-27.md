@@ -8,6 +8,12 @@ Points relevés en relisant les fichiers protégés (`CLAUDE.md`, `db/schema_pre
    **Traité** : `db/migrations/001_statuts_candidats.sql`.
 
 2. **Panel trop large et sans règle écrite.** Les 21 candidats du groupe A sont `dans_le_panel = oui`, alors que le MVP prévoyait environ 6 candidats, et la colonne `regle_panel` n'a pas de valeur proposée. Avec 21 candidats, un comparateur de 45 secondes laisse environ 2 secondes par candidat. Proposition : écrire la règle publique (par exemple « candidat déclaré d'une formation représentée au Parlement ») dans le fichier de sources, puis appliquer `dans_le_panel` en conséquence.
+   **Décision de l'éditeur (27 novembre 2026)** : aucun lien avec les élus au Parlement. Tout candidat déclaré ayant publié un programme est collecté ; l'éditeur choisit ensuite les candidats des vidéos.
+   - Traité dans `prompts/01_ingestion.md` (collecte des groupes A et D, procédure identique pour tous, tableau de suivi des programmes dans le rapport) et dans `db/migrations/002_suivi_programmes.sql` (colonnes `programme_url`, `programme_publie_le`, vue `v_suivi_collecte`).
+   - **Reste à faire dans les fichiers protégés, par l'éditeur ou avec son accord explicite** :
+     - `sources_a_surveiller.md`, section 0 règle 6 : remplacer par « Tous les candidats déclarés (groupes A et D) sont collectés. `dans_le_panel` désigne seulement les candidats retenus pour les vidéos, choisis par l'éditeur. »
+     - `sources_a_surveiller.md`, groupe A : passer `dans_le_panel` à `non` partout en attendant le choix ; groupe D : retirer « aucune collecte de réseaux sociaux » ou le limiter aux réseaux (la collecte des programmes s'applique).
+     - `CLAUDE.md`, section Neutralité : « Tous les candidats du panel » → « Tous les candidats déclarés ».
 
 ## Garde-fous à renforcer dans le schéma
 
