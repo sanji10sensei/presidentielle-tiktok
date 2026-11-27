@@ -13,6 +13,8 @@ Points relevés en relisant les fichiers protégés (`CLAUDE.md`, `db/schema_pre
 
 ## Garde-fous à renforcer dans le schéma
 
+Points 3, 4 et 5 **traités** : `db/migrations/003_garde_fous.sql` (avec en plus un blocage du déclassement en niveau 3 d'une source dont dépendent des positions vérifiées).
+
 3. **Niveau 3 non bloqué en base.** La règle « pas de position depuis un réseau social seul » n'existe que dans les prompts. Proposition : déclencheur refusant le passage à `verifie` d'une position dont la source a `niveau_fiabilite = 3`.
 
 4. **Panel non contrôlé par le déclencheur vidéo.** `controle_affirmation()` vérifie le statut et la validité, pas que le candidat est `dans_le_panel`. Proposition : ajouter cette condition.

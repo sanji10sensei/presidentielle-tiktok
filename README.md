@@ -13,7 +13,8 @@ presidentielle-tiktok/
 ├── sources_a_surveiller.md       candidats, partis, presse, institutions, domaines autorisés
 ├── db/
 │   ├── schema_presidentielle.sql schéma de la base (PostgreSQL, compatible Supabase)
-│   └── migrations/               modifications successives du schéma
+│   ├── migrations/               modifications successives du schéma
+│   └── tests/                    test du schéma et des garde-fous (node db/tests/test_migrations.mjs)
 ├── prompts/
 │   ├── 01_ingestion.md           collecte quotidienne → positions en brouillon
 │   ├── 02_generation_script.md   script de vidéo lu uniquement dans v_positions_publiables
