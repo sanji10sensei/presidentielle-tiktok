@@ -1,6 +1,6 @@
 # Propositions de modification : 27 novembre 2026
 
-Points relevés en relisant les fichiers protégés (`CLAUDE.md`, `db/schema_presidentielle.sql`, `sources_a_surveiller.md`), qui n'ont pas été modifiés. À arbitrer par l'éditeur.
+Points relevés en relisant les fichiers protégés (`CLAUDE.md`, `db/schema_presidentielle.sql`, `sources_a_surveiller.md`). Ils n'ont été modifiés qu'avec l'accord explicite de l'éditeur (point 2) ; le reste est à arbitrer par l'éditeur.
 
 ## Bloquant avant la première ingestion
 
