@@ -1,0 +1,24 @@
+# Secrets : ne jamais publier
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node
+node_modules/
+
+# Rendus vidéo et fichiers temporaires
+out/
+*.mp4
+*.mov
+tmp/
+
+# Système
+.DS_Store
+Thumbs.db
