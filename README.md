@@ -40,7 +40,7 @@ presidentielle-tiktok/
 
 ## Mise en route
 
-1. Créer un projet Supabase et exécuter `db/schema_presidentielle.sql`.
+1. Créer un projet Supabase, exécuter `db/schema_presidentielle.sql`, puis les fichiers de `db/migrations/` dans l'ordre de leur numéro (chacun séparément).
 2. Configurer l'environnement cloud de Claude Code (réseau « Custom », domaines de la section 8 de `sources_a_surveiller.md`, clés en secrets réseau).
 3. Créer la routine quotidienne avec le contenu de `prompts/01_ingestion.md`.
 4. Lancer « Run now », relire le déroulé et les lignes insérées, puis corriger le prompt si besoin.

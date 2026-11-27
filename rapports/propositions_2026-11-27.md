@@ -5,6 +5,7 @@ Points relevés en relisant les fichiers protégés (`CLAUDE.md`, `db/schema_pre
 ## Bloquant avant la première ingestion
 
 1. **Statuts de candidats incohérents.** L'enum `statut_candidat` du schéma vaut `declare`, `declare_sous_condition`, `pressenti`, `retire`. Le fichier de sources utilise `ambition_annoncee` et `declare_peu_visible`, absents de l'enum : l'insertion des groupes B et D échouera. Proposition : migration `db/migrations/001_statuts_candidats.sql` ajoutant ces deux valeurs (`ALTER TYPE statut_candidat ADD VALUE ...`), ou alignement du fichier de sources sur l'enum.
+   **Traité** : `db/migrations/001_statuts_candidats.sql`.
 
 2. **Panel trop large et sans règle écrite.** Les 21 candidats du groupe A sont `dans_le_panel = oui`, alors que le MVP prévoyait environ 6 candidats, et la colonne `regle_panel` n'a pas de valeur proposée. Avec 21 candidats, un comparateur de 45 secondes laisse environ 2 secondes par candidat. Proposition : écrire la règle publique (par exemple « candidat déclaré d'une formation représentée au Parlement ») dans le fichier de sources, puis appliquer `dans_le_panel` en conséquence.
 
