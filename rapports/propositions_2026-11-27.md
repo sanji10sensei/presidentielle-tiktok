@@ -23,6 +23,10 @@ Points 3, 4 et 5 **traités** : `db/migrations/003_garde_fous.sql` (avec en plus
 
 6. **Vue publiable incomplète pour la génération.** `v_positions_publiables` n'expose ni le slug du candidat, ni le slug du thème, ni `niveau_fiabilite`. Le prompt 02 filtre par thème et cite la source : il serait plus sûr de filtrer sur `t.slug` que sur `libelle`. Proposition : ajouter `c.slug AS candidat_slug`, `t.slug AS theme_slug`, `s.niveau_fiabilite`.
 
+## Sécurité
+
+**Traité** : `db/migrations/004_securite_supabase.sql`. La clé publique de Supabase (rôle `anon`) n'a plus accès ni aux tables ni aux vues (RLS active sans règle, vues en `security_invoker`, droits retirés, y compris pour les objets créés plus tard).
+
 ## Mineur
 
 7. `comptes_decouverts.md` est cité par le prompt 01 sans emplacement précis. Proposition : `rapports/comptes_decouverts.md`.

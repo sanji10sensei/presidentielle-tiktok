@@ -14,7 +14,9 @@ presidentielle-tiktok/
 ├── db/
 │   ├── schema_presidentielle.sql schéma de la base (PostgreSQL, compatible Supabase)
 │   ├── migrations/               modifications successives du schéma
-│   └── tests/                    test du schéma et des garde-fous (node db/tests/test_migrations.mjs)
+│   ├── installation_complete.sql schéma et migrations assemblés (généré par assembler_installation.py)
+│   ├── donnees_initiales.sql     thèmes et candidats de départ
+│   └── tests/                    tests des garde-fous et de la sécurité (node db/tests/*.mjs)
 ├── prompts/
 │   ├── 01_ingestion.md           collecte quotidienne → positions en brouillon
 │   ├── 02_generation_script.md   script de vidéo lu uniquement dans v_positions_publiables
@@ -41,7 +43,7 @@ presidentielle-tiktok/
 
 ## Mise en route
 
-1. Créer un projet Supabase, puis dans son éditeur SQL exécuter `db/installation_complete.sql` (schéma et migrations assemblés), puis `db/donnees_initiales.sql` (thèmes et candidats). Après toute nouvelle migration, régénérer `db/installation_complete.sql`.
+1. Créer un projet Supabase, puis dans son éditeur SQL exécuter `db/installation_complete.sql` (schéma et migrations assemblés), puis `db/donnees_initiales.sql` (thèmes et candidats). Après toute nouvelle migration, régénérer ce fichier avec `python3 db/assembler_installation.py`.
 2. Configurer l'environnement cloud de Claude Code (réseau « Custom », domaines de la section 8 de `sources_a_surveiller.md`, clés en secrets réseau).
 3. Créer la routine quotidienne avec le contenu de `prompts/01_ingestion.md`.
 4. Lancer « Run now », relire le déroulé et les lignes insérées, puis corriger le prompt si besoin.
