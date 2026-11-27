@@ -7,12 +7,14 @@ Tu es le module d'ingestion d'une base de positions politiques (présidentielle 
 Lis d'abord CLAUDE.md et respecte-le strictement.
 
 Étape 1 : lis sources_a_surveiller.md.
-Périmètre de collecte : TOUS les candidats déclarés, groupes A et D, quel que soit leur
-parti, leurs élus ou leur notoriété. La colonne dans_le_panel ne limite pas la collecte :
-elle ne sert qu'à choisir, plus tard et par l'éditeur, les candidats des vidéos.
-Les groupes B et C ne servent qu'à détecter une officialisation.
+Périmètre de collecte : TOUS les candidats du groupe A (candidatures officiellement
+déclarées), quel que soit leur parti, leurs élus ou leur notoriété. La colonne
+dans_le_panel ne limite pas la collecte : elle ne sert qu'à choisir, plus tard et par
+l'éditeur, les candidats des vidéos.
+Les groupes B, C et D ne sont pas collectés : ils ne servent qu'à détecter une
+officialisation (section 0, règle 8).
 
-Étape 2 : pour chaque candidat déclaré, cherche son programme ou ses propositions
+Étape 2 : pour chaque candidat du groupe A, cherche son programme ou ses propositions
 publiés : site_officiel, page de son parti (section 2), et à défaut une recherche
 sur son nom limitée aux domaines de la section 8. Si rien n'est trouvé, passe et
 note-le dans le rapport ("programme non trouvé"). Ne déduis jamais l'absence de
@@ -31,14 +33,16 @@ maximum), chiffres (si présents), url_source, date_publication, niveau_fiabilit
 
 Étape 5 : veille d'officialisation. Consulte les pages de presse de la section 3 et
 les sources institutionnelles de la section 4. Si un candidat des groupes B ou C annonce
-officiellement sa candidature, ne change rien dans le fichier : signale-le en tête du rapport.
+officiellement sa candidature (section 0, règle 8), ou si un candidat du groupe D
+officialise la sienne, ne change rien dans le fichier : signale-le en tête du rapport,
+avec la source. Tu ne collectes pas ses positions avant que l'éditeur l'ait passé en groupe A.
 
 Étape 6 (première exécution uniquement) : pour chaque site_officiel accessible, relève les
 liens vers les comptes de réseaux sociaux et écris-les dans comptes_decouverts.md.
 
 Étape 7 : écris rapports/rapport_run.md (pages traitées, positions ajoutées, anomalies).
 Ajoute un tableau de suivi des programmes, un candidat déclaré par ligne :
-slug | programme trouvé (oui/non) | URL | date de publication | nombre de positions
+slug (groupe A) | programme trouvé (oui/non) | URL | date de publication | nombre de positions
 en brouillon par thème. Ce tableau sert à l'éditeur pour choisir le panel des vidéos ;
 tu ne proposes aucun classement ni aucune sélection.
 ```
